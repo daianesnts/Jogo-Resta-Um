@@ -1,0 +1,16 @@
+# Executáveis e objetos C++
+*.exe
+*.o
+resta1
+cpp/*.exe
+cpp/*.o
+cpp/resta1
+
+# Arquivos de dados / salvamento local
+resultado.txt
+cpp/resultado.txt
+
+# Arquivos de ambiente/editor
+.vscode/
+.idea/
+.DS_Store
