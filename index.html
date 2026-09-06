@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Resta 1 – O clássico jogo de tabuleiro Peg Solitaire. Deixe apenas uma peça no centro do tabuleiro!">
+  <title>Resta 1 — Peg Solitaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header class="header">
+      <h1 class="logo">RESTA <em>1</em></h1>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-label">Peças</span>
+        <span class="stat-value" id="peg-count">32</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Movimentos</span>
+        <span class="stat-value" id="move-count">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Tempo</span>
+        <span class="stat-value mono" id="timer">00:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="btn-new-game" title="Nova Partida">
+        Nova Partida
+      </button>
+      <button class="btn btn-secondary" id="btn-undo" title="Desfazer último movimento" disabled>
+        Desfazer
+      </button>
+      <button class="btn btn-hint" id="btn-hint" title="Sugerir um movimento (máx. 3 por partida)">
+        Dica
+        <span class="badge" id="hint-count">3</span>
+      </button>
+      <button class="btn btn-secondary" id="btn-ranking" title="Ver ranking">
+        Ranking
+      </button>
+    </div>
+
+    <main class="board-wrap">
+      <div class="board" id="board" role="grid" aria-label="Tabuleiro Resta 1"></div>
+    </main>
+    <p class="instruction" id="instruction">Selecione uma peça e depois clique no destino</p>
+
+  </div>
+
+  <div class="overlay" id="result-modal" aria-modal="true" role="dialog" hidden>
+    <div class="modal">
+      <div class="modal-icon" id="result-icon" aria-hidden="true" style="display:none;"></div>
+      <h2 class="modal-title" id="result-title"></h2>
+      <p class="modal-text" id="result-text"></p>
+      <div class="result-stats">
+        <div class="result-stat">
+          <span class="result-stat-label">Peças Restantes</span>
+          <span class="result-stat-value" id="result-pieces"></span>
+        </div>
+        <div class="result-stat">
+          <span class="result-stat-label">Movimentos</span>
+          <span class="result-stat-value" id="result-moves"></span>
+        </div>
+        <div class="result-stat">
+          <span class="result-stat-label">Tempo</span>
+          <span class="result-stat-value mono" id="result-time"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="player-name">Nome para o ranking:</label>
+        <input class="form-input" type="text" id="player-name" maxlength="20" placeholder="Digite seu nome…"
+          autocomplete="off">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-full" id="btn-save-ranking">Salvar e Jogar Novamente</button>
+        <button class="btn btn-ghost" id="btn-skip-ranking">Só Jogar Novamente</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="ranking-modal" aria-modal="true" role="dialog" hidden>
+    <div class="modal modal-wide">
+      <h2 class="modal-title">Ranking</h2>
+      <div class="table-wrap">
+        <table class="ranking-table" id="ranking-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>Peças</th>
+              <th>Movimentos</th>
+              <th>Tempo</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-body"></tbody>
+        </table>
+        <p class="empty-state" id="empty-ranking" hidden>
+          Nenhuma partida salva ainda.<br>Jogue e salve sua pontuação!
+        </p>
+      </div>
+      <div class="modal-actions modal-actions-row">
+        <button class="btn btn-ghost" id="btn-close-ranking">Fechar</button>
+        <button class="btn btn-danger" id="btn-clear-ranking">Limpar Ranking</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="confirm-modal" aria-modal="true" role="dialog" hidden>
+    <div class="modal modal-small">
+      <h2 class="modal-title">Nova Partida?</h2>
+      <p class="modal-text">O progresso atual será perdido. Tem certeza?</p>
+      <div class="modal-actions modal-actions-row">
+        <button class="btn btn-primary" id="btn-confirm-yes">Sim, nova partida</button>
+        <button class="btn btn-ghost" id="btn-confirm-no">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+
+</html>
