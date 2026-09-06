@@ -58,7 +58,10 @@ g++ -std=c++17 cpp/Board.cpp cpp/Game.cpp cpp/Solver.cpp cpp/main.cpp -o resta_u
 ## Estrutura do Repositório
 
 ```
-projeto1-prog2/
+Jogo-Resta-Um/
+├── .gitignore
+├── LICENSE
+├── README.md  
 ├── index.html        # Página principal do jogo
 ├── style.css         # Estilização 
 ├── game.js           # Lógica do jogo 
