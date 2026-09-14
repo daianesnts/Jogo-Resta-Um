@@ -21,7 +21,11 @@ Agora, no 6º período, o projeto foi transformado em um **Em algo mais moderno 
 
 ## Como Jogar no Navegador
 
-Basta abrir o arquivo **`index.html`** em qualquer navegador.
+Basta abrir o arquivo **`index.html`** em qualquer navegador ou Acesse diretamente, sem baixar nada, 
+<a
+    href="https://daianesnts.github.io/Jogo-Resta-Um/">
+    clicando aqui
+</a>
 
 ### Recursos do Jogo:
 
